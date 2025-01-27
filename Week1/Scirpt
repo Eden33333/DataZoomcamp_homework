@@ -6,6 +6,23 @@ Pip -V
 # based on the name defined and localhost to login in instead of PostgreSQL's default port
 
 # 3.
+1)
+select count(*)
+FROM "green_taxi_trips_20191011"
+where trip_distance <=1
+2)
+select count(*)
+FROM "green_taxi_trips_20191011"
+where trip_distance <=3 and   trip_distance >1
+3)
+select count(*)
+FROM "green_taxi_trips_20191011"
+where trip_distance <=7 and   trip_distance >3
+4)
+select count(*)
+FROM "green_taxi_trips_20191011"
+where trip_distance <=10 and   trip_distance >7
+5) 
 select count(*)
 FROM "green_taxi_trips_20191011"
 where trip_distance > 10

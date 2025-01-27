@@ -35,6 +35,7 @@ group by lpep_pickup_datetime
 order by longest desc
 
 # 5.
+Method 1:
 SELECT z."Zone",sum("total_amount") s
 FROM "green_taxi_trips_20191011" g
 LEFT JOIN zones z ON g."PULocationID" = z."LocationID"
@@ -43,6 +44,13 @@ where lpep_pickup_datetime > '2019-10-17' ::timestamp
 group by z."Zone"
 order by s desc;
 
+Method 2:
+SELECT z."Zone",sum("total_amount") s
+FROM "green_taxi_trips_20191011" g
+LEFT JOIN zones z ON g."PULocationID" = z."LocationID"
+where TO_CHAR(g."lpep_pickup_datetime", 'YYYY-MM-DD') = '2019-10-18'
+group by z."Zone"
+order by s desc;
 
 # 6.
 SELECT zz."Zone",s

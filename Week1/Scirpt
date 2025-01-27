@@ -1,0 +1,41 @@
+# 1. Open docker desktop and run 
+docker run -it python:3.12.8 bash
+Pip -V
+
+# 2. Pgadmin will connect with pgsql 
+# based on the name defined and localhost to login in instead of PostgreSQL's default port
+
+# 3.
+select count(*)
+FROM "green_taxi_trips_20191011"
+where trip_distance > 10
+
+# 4.
+select max(trip_distance) longest,lpep_pickup_datetime
+FROM "green_taxi_trips_20191011"
+where trip_distance > 10
+group by lpep_pickup_datetime
+order by longest desc
+
+# 5.
+SELECT z."Zone",sum("total_amount") s
+FROM "green_taxi_trips_20191011" g
+LEFT JOIN zones z ON g."PULocationID" = z."LocationID"
+where lpep_pickup_datetime > '2019-10-17' ::timestamp
+	And lpep_pickup_datetime < '2019-10-19' ::timestamp
+group by z."Zone"
+order by s desc;
+
+
+# 6.
+SELECT zz."Zone",s
+FROM (
+    SELECT  SUM(Tip_amount) AS s, g."DOLocationID"
+    FROM "green_taxi_trips_20191011" g
+    LEFT JOIN zones z ON g."PULocationID" = z."LocationID"
+    WHERE z."Zone" = 'East Harlem North'
+    GROUP BY g."DOLocationID"
+	order by s desc
+) a
+LEFT JOIN zones zz ON a."DOLocationID" = zz."LocationID"
+order by s desc

@@ -39,7 +39,7 @@ Method 1:
 SELECT z."Zone",sum("total_amount") s
 FROM "green_taxi_trips_20191011" g
 LEFT JOIN zones z ON g."PULocationID" = z."LocationID"
-where lpep_pickup_datetime > '2019-10-17' ::timestamp
+where lpep_pickup_datetime > '2019-10-18' ::timestamp
 	And lpep_pickup_datetime < '2019-10-19' ::timestamp
 group by z."Zone"
 order by s desc;

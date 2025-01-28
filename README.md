@@ -1,2 +1,3 @@
 # DataZoomcamp_homework
-This is a assignment to practicie my data engineer skills
+[Week1](https://github.com/Eden33333/DataZoomcamp_homework/blob/main/Week1/Explanation.md)
+

@@ -86,7 +86,7 @@ East Harlem South
 ## Answer
 - Pick-up zone is "East Harlem North": We need use `left join` to make pick-up zone and use it as filter condition
 - The largest tip in drop off zone: we need to use aggreate function `sum` to calculate the largest tip in drop-off area. Also, use table zones to map the specific name
-The answer below shows the largest tip drop-off zone is **Upper East Side North** but we don't have this option, so we choose the relatively largest **East Harlem South**  
-!(Question 6)[https://github.com/Eden33333/DataZoomcamp_homework/blob/main/Week1/Image/Question%206.png]
+The answer below shows the largest tip drop-off zone is **Upper East Side North** but we don't have this option, so we choose the relatively largest **East Harlem South**
 
+![Question 6](https://github.com/Eden33333/DataZoomcamp_homework/blob/main/Week1/Image/Question%206.png)
 

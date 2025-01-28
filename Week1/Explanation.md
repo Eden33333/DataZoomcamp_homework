@@ -1,9 +1,23 @@
-Here is the [link](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_green.pdf), you can know the descirption of the data.
-1. Prepared the files,  docker-compose.yaml to hold the pgsql's setting, a Dockerfile to contain python docker configuration and a ingest_data.py to download the data from web.
-2. Open docker-desktop
-3. Run `docker-compose up -d`
-4. Run
-  ```
+ NYC Taxi Data Ingestion and Analysis
+
+## Data Description
+You can find the description of the data [here](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_green.pdf).
+
+---
+
+## Steps to Ingest Data
+
+1. **Prepare the Files:**
+   - `docker-compose.yaml` to hold the PostgreSQL settings.
+   - `Dockerfile` to contain the Python Docker configuration.
+   - `ingest_data.py` to download the data from the web.
+
+2. **Open Docker Desktop.**
+3. **Run the Following Command:**
+   ```bash
+   docker-compose up -d
+4. **Run the Docker Container**
+   ```bash
   docker run -it \
   --network=pg-network \
   taxi_ingest:v001 \
@@ -16,10 +30,10 @@ Here is the [link](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_
     --url=${url}
   ```
 Note: 
-- Set url="" before step 4(without any space)
-- You need to change the `network` name by `docker network ls` and choose `week1_default`
-- Change tb
-- Change db if you want to change database
+- Set url="" before step 4 (without any spaces).
+- Change the network name by running docker network ls and choosing week1_default.
+- Adjust tb (table name) as needed.
+- Modify db (database name) if you wish to use a different database.
 
 # Question 3
 During the period of October 1st 2019 (inclusive) and November 1st 2019 (exclusive), how many trips, respectively, happened:
